@@ -1,0 +1,21 @@
+<table class="table">
+ <tr>
+     <th>Les Themes</th>
+     <th>Discussions</th>
+     <th>Messages</th>
+     <th>&nbsp;</th>
+     
+<?php foreach ($themes as $theme) { ?>
+<tr>
+	<td>
+		<a href="<?php echo $this->url('discussion',array('idTheme'=> $theme->id))?>"> 
+			<?php echo $theme->titre ?>
+		</a>
+	</td>	
+</tr>
+<?php } ?>
+</table>
+
+
+
+
