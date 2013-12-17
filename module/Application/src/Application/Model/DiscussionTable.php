@@ -61,4 +61,8 @@ class DiscussionTable
 				WHERE d.idTheme = :idTheme";
 		return $this ->adapter->query($sql,array(':idTheme'=>$id));
 	}
+
+	public function NombreDeDiscussion()
+		{
+}
 }

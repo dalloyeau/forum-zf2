@@ -15,6 +15,8 @@ return array(
     'db' => array(
         'driver'   => 'pdo_mysql',
         'database' => 'siteweb',
+	'user' => 'root',
+	'password' =>'po35rch41',
         'driver_options' => array(
              PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
