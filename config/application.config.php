@@ -12,7 +12,7 @@ return array(
         	'ZfcAdmin',
             'BjyAuthorize',
         'SamUser',
-         
+         'Admin',
         
     		
     ),
