@@ -8,8 +8,12 @@ return array(
             'ZfcBase',
             'ZfcUser',
             'ZfcUserDoctrineORM',
+             'BjyProfiler',
+        	'ZfcAdmin',
             'BjyAuthorize',
-        'SamUser'
+        'SamUser',
+         
+        
     		
     ),
     'module_listener_options' => array(
