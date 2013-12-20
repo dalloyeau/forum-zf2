@@ -1,17 +1,17 @@
 <?php
 return array(
     'modules' => array(
-                'ZendDeveloperTools',
+            'ZendDeveloperTools',
             'Application',
             'DoctrineModule',
             'DoctrineORMModule',
             'ZfcBase',
             'ZfcUser',
             'ZfcUserDoctrineORM',
-             'BjyProfiler',
-        	'ZfcAdmin',
+            'BjyProfiler',
             'BjyAuthorize',
         'SamUser',
+        
         
         
     		
