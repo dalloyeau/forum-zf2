@@ -1,5 +1,5 @@
 <?php
-namespace Album\Form;
+namespace Application\Form;
 use Zend\Form\Form;
 
 class DiscussionForm extends Form
@@ -8,7 +8,7 @@ class DiscussionForm extends Form
     public function __construct()
     {
         parent::__construct();
-        $this->setName('application');
+        $this->setName('discussion');
         $this->setAttribute('method', 'post');
         
         $this->add(array(
@@ -20,10 +20,10 @@ class DiscussionForm extends Form
         
         
         $this->add(array(
-            'name' => 'titre',
+            'name' => 'title',
             'attributes' => array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => 'title',
             ),
         ));
         
