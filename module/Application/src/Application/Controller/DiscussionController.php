@@ -1,4 +1,4 @@
-<?php
+ <?php
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -29,22 +29,22 @@ class DiscussionController extends AbstractActionController
 	}
 
 	public function addAction()
-{
-    $form = new DiscussionForm();
-    $form->get('submit')->setAttribute('label', 'Add');
-    $request = $this->getRequest();
-    if ($request->isPost()) {
-        $discussion = new Discussion();
-        $form->setInputFilter($discussion->getInputFilter());
-        $form->setData($request->post());
-        if ($form->isValid()) {
-            $discussion->populate($form->getData());
-            $this->getAlbumTable()->saveDiscussion($discussion);
-            // Redirect to list of albums
-            return $this->redirect()->toRoute('discussion');
-        }
-    }
-    return array('form' => $form);
-}
+		{
+		    $form = new DiscussionForm();
+		    $form->get('submit')->setAttribute('label', 'Add');
+		    $request = $this->getRequest();
+		    if ($request->isPost()) {
+		        $discussion = new Discussion();
+		        $form->setInputFilter($discussion->getInputFilter());
+		        $form->setData($request->post());
+		        if ($form->isValid()) {
+		            $discussion->populate($form->getData());
+		            $this->getAlbumTable()->saveDiscussion($discussion);
+		            // Redirect to list of albums
+		            return $this->redirect()->toRoute('discussion');
+		        }
+		    }
+		    return array('form' => $form);
+		}
 
 }

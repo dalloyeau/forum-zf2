@@ -62,7 +62,5 @@ class DiscussionTable
 		return $this ->adapter->query($sql,array(':idTheme'=>$id));
 	}
 
-	public function NombreDeDiscussion()
-		{
-}
+	
 }
