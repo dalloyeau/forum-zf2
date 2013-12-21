@@ -1,20 +1,8 @@
 <?php
 return array(
     'modules' => array(
-            'ZendDeveloperTools',
-            'Application',
-            'DoctrineModule',
-            'DoctrineORMModule',
-            'ZfcBase',
-            'ZfcUser',
-            'ZfcUserDoctrineORM',
-            'BjyProfiler',
-            'BjyAuthorize',
-        'SamUser',
-        
-        
-        
-    		
+        'Application',
+        'Album',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
