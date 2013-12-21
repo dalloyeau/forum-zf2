@@ -4,7 +4,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Model\Discussion;
-use Application\Model\DiscussionTable;
+use Application\Model\DiscussionTable,
 use Application\Form\DiscussionForm;
 
 class DiscussionController extends AbstractActionController
@@ -38,12 +38,13 @@ class DiscussionController extends AbstractActionController
         $form->setInputFilter($discussion->getInputFilter());
         $form->setData($request->post());
         if ($form->isValid()) {
-            $album->populate($form->getData());
-            $this->getDiscussionTable()->saveDiscussion($discussion);
-            
+            $discussion->populate($form->getData());
+            $this->getAlbumTable()->saveDiscussion($discussion);
+            // Redirect to list of albums
             return $this->redirect()->toRoute('discussion');
         }
     }
     return array('form' => $form);
 }
+
 }

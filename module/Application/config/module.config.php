@@ -51,15 +51,14 @@ return array(
             'discussion' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/discussion[-:idTheme][/:action]',
-            				 'constraints' => array(
-                        		'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        		'idTheme' => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Discussion',
-                        'action' => 'discussion',
-                    ),
+            				'route'    => '/discussion[-:idTheme]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Discussion',
+            						'action'     => 'discussion',
+            				),
+            				'constraints' => array(
+            					'idTheme' => '[0-9]*',
+            				),
             		),
             ),
             
