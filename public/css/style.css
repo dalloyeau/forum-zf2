@@ -4,7 +4,11 @@ body {
 }
 
 .zf-green {
-    color: #68b604; 
+    color: #68b604;
+}
+
+.doc-red {
+    color: red;
 }
 
 .btn-success {
@@ -27,11 +31,24 @@ body {
 }
 
 .btn-success:active, .btn-success.active {
-  background-color: #57a900 \9;
+  background-color: #57a900;
 }
 
 div.container a.brand {
-    background: url("../images/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
     padding: 8px 20px 12px 40px;
+}
+
+.jumbotron {
+	padding : 15px ; 
+}
+
+.jumbotron-h3 {
+  padding: 5px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
 }

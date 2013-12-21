@@ -1,17 +1,82 @@
 <?php
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+
 return array(
     'router' => array(
         'routes' => array(
+        		
+        		//route pour l'accueil	
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Album\Controller\Album',
+                        'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
             ),
+        		
+        		// route pour l'inscription
+            'register' => array(
+            		'type' => 'Zend\Mvc\Router\Http\Literal',
+            		'options' => array(
+            				'route'    => '/register',
+            				'defaults' => array(
+            						'controller' => 'zfcuser',
+            						'action'     => 'register',
+            						),
+            				),	
+            ),
+            
+            	// route pour connexion
+            'user' => array(
+            		'type' => 'Zend\Mvc\Router\Http\Literal',
+            		'options' => array(
+            				'route'    => '/user',
+            				'defaults' => array(
+            						'controller' => 'zfcuser',
+            						'action'     => 'user',
+            				),
+            		),
+            ),
+            
+            	// route pour discussion
+            'discussion' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/discussion[-:idTheme]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Discussion',
+            						'action'     => 'discussion',
+            				),
+            				'constraints' => array(
+            					'idTheme' => '[0-9]*',
+            				),
+            		),
+            ),
+            
+            // route pour message
+            'message' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/message[-:idDiscussion]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Message',
+            						'action'     => 'message',
+            				),
+            				'constraints' => array(
+            						'idDiscussion' => '[0-9]*',
+            				),
+            		),
+            ),
+            
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -45,13 +110,17 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'factories' => array(
-            'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+        'abstract_factories' => array(
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+            'Zend\Log\LoggerAbstractServiceFactory',
+        ),
+        'aliases' => array(
+            'translator' => 'MvcTranslator',
         ),
     ),
     'translator' => array(
         'locale' => 'en_US',
-        'translation_patterns' => array(
+        'translation_file_patterns' => array(
             array(
                 'type'     => 'gettext',
                 'base_dir' => __DIR__ . '/../language',
@@ -61,7 +130,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Discussion' => 'Application\Controller\DiscussionController',
+            'Application\Controller\Message' => 'Application\Controller\MessageController'
         ),
     ),
     'view_manager' => array(
@@ -78,6 +149,13 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+    ),
+    // Placeholder for console routes
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+            ),
         ),
     ),
 );
