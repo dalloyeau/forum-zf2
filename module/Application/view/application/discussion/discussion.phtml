@@ -1,0 +1,38 @@
+<?php
+$title = 'titre theme';
+$this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHTML($title); ?></h1>
+
+<p>
+    <a href="<?php echo $this->url('discussion', array('action'=>'add'));?>">Ajouter une discussion</a>
+</p>
+
+<table class="table">
+ <tr>
+     <th>Discussion</th>
+     <th>Auteur</th>
+     <th>Dernier message</th>
+     <th>Réponses</th>
+     <th>&nbsp;</th>
+     
+<?php foreach ($discussions as $discussion) { ?>
+<tr>
+	<td>
+		<a href="<?php echo $this->url('message',array('idDiscussion'=> $discussion->id))?>"> 
+			<?php echo $discussion->titre ?>
+		</a>
+	</td>
+	<td>
+		
+	</td>
+	<td>
+		
+	</td>	
+	<td>
+		
+	</td>		
+</tr>
+<?php } ?>
+</table>

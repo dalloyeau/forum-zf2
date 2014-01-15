@@ -25,24 +25,24 @@ return array(
         		
         		// route pour l'inscription
             'register' => array(
-            		'type' => 'Zend\Mvc\Router\Http\Literal',
+            		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/register',
+            				'route'    => '/inscription',
             				'defaults' => array(
-            						'controller' => 'zfcuser',
-            						'action'     => 'register',
+            						'controller' => 'Application\Controller\Inscription',
+            						'action'     => 'inscription',
             						),
             				),	
             ),
             
             	// route pour connexion
             'user' => array(
-            		'type' => 'Zend\Mvc\Router\Http\Literal',
+            		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/user',
+            				'route'    => '/connexion',
             				'defaults' => array(
-            						'controller' => 'zfcuser',
-            						'action'     => 'user',
+            						'controller' => 'Application\Controller\Connexion',
+            						'action'     => 'connexion',
             				),
             		),
             ),

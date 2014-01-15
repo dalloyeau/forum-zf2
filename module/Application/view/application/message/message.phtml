@@ -1,0 +1,28 @@
+<?php
+$title = 'titre discussion';
+$this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHTML($title); ?></h1>
+
+<p>
+    <a href="<?php echo $this->url('message', array('action'=>'add'));?>">Ajouter un message</a>
+</p>
+
+<table class="table">
+ <tr>
+     <th>Auteur</th>
+     <th>Message</th>
+     <th>&nbsp;</th>
+     
+<?php foreach ($messages as $message) { ?>
+<tr>
+	<td> 
+			
+	</td>
+	<td>
+		<?php echo $message->message ?>
+	</td>	
+</tr>
+<?php } ?>
+</table>

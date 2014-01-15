@@ -1,0 +1,17 @@
+<?php
+
+namespace Application\Controller;
+
+use Application\Model\SessionContainer;
+use Zend\Mvc\Controller\AbstractActionController;
+
+class FonctionController extends AbstractActionController{
+	
+	protected $classSession;
+	
+	public funtion __construct()
+	{
+		$this->classSession = new SessionContainer();
+	}	
+}
+
